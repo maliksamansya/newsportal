@@ -13,18 +13,29 @@ class FrontController extends Controller
     {
         try {
             $topnewslist = News::latest()->whereHas('category')->where('status',1)->take(5)->get();
-
+            // var_dump($topnewslist);
             $newscategory_one   = News::latest()->whereHas('category')->where('category_id',6)->where('status',1)->take(9)->get();
             $newscategory_two   = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
             $newscategory_three = News::latest()->whereHas('category')->where('category_id',3)->where('status',1)->take(10)->get();
+            $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
 
-            return view('frontend.index',compact(
-                    'topnewslist',
-                    'newscategory_one',
-                    'newscategory_two',
-                    'newscategory_three'
-                )
-            );
+            // return view('frontend.index',compact(
+            //         'topnewslist',
+            //         'newscategory_one',
+            //         'newscategory_two',
+            //         'newscategory_three'
+            //     )
+            // );
+            return view('info',compact(
+                'topnewslist',
+                'newscategory_one',
+                'newscategory_two',
+                'newscategory_three',
+                'newstabspopular',
+                'newstabsrecent'
+            )
+        );
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
