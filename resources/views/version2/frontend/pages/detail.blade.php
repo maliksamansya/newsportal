@@ -17,6 +17,7 @@
         </div>
     </div>
     <!-- Preloader Start -->
+    <!-- UI version 2 -->
 
     <main>
         <!-- About US Start -->
