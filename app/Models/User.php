@@ -33,7 +33,7 @@ class User extends Authenticatable
     public function role()
     {
     //   return $this->hasMany(User::class,'role_id');
-      return $this->hasOne(Role::class, 'role_id');
+      return $this->belongsTo(Role::class, 'role_id');
     }
 
     public function hasRole($roles)
@@ -54,4 +54,13 @@ class User extends Authenticatable
     {
         return (strtolower($need_role) == strtolower($this->role->name)) ? true : null;
     }
+
+    // private function checkIfUserHasRole($need_role)
+    // {
+    //     // Pastikan relasi 'role' di-load
+    //     if ($this->relationLoaded('role')) {
+    //         return strtolower($need_role) == strtolower($this->role->name);
+    //     }
+    //     return false;
+    // }
 }

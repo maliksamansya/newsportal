@@ -20,22 +20,24 @@ class FrontController extends Controller
             $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
             $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
 
-            // return view('frontend.index',compact(
-            //         'topnewslist',
-            //         'newscategory_one',
-            //         'newscategory_two',
-            //         'newscategory_three'
-            //     )
-            // );
-            return view('info',compact(
-                'topnewslist',
-                'newscategory_one',
-                'newscategory_two',
-                'newscategory_three',
-                'newstabspopular',
-                'newstabsrecent'
-            )
-        );
+            return view('frontend.index',compact(
+                    'topnewslist',
+                    'newscategory_one',
+                    'newscategory_two',
+                    'newscategory_three',
+                    'newstabspopular',
+                    'newstabsrecent'
+                )
+            );
+        //     return view('info',compact(
+        //         'topnewslist',
+        //         'newscategory_one',
+        //         'newscategory_two',
+        //         'newscategory_three',
+        //         'newstabspopular',
+        //         'newstabsrecent'
+        //     )
+        // );
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
@@ -51,7 +53,20 @@ class FrontController extends Controller
             $newscategorylist   = $category->newslist()->where('status',1)->where('featured',0)->get();
             $advertisements     = Advertisement::where('type','category')->where('slug',$slug)->first();
 
-            return view('frontend.pages.category',compact('category','featurednewslist','newscategorylist','advertisements'));
+            $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_one   = News::latest()->whereHas('category')->where('category_id',6)->where('status',1)->take(9)->get();
+            $newscategory_two   = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_three = News::latest()->whereHas('category')->where('category_id',3)->where('status',1)->take(10)->get();
+
+
+            return view('frontend.pages.category',compact(
+                'category','featurednewslist','newscategorylist','advertisements',
+                'newstabspopular', 'newstabsrecent',
+                'newscategory_one',
+                'newscategory_two',
+                'newscategory_three',
+            ));
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
@@ -62,6 +77,11 @@ class FrontController extends Controller
     {
         try {
             $newssingle = News::with('category')->where('slug',$slug)->first();
+            $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_one   = News::latest()->whereHas('category')->where('category_id',6)->where('status',1)->take(9)->get();
+            $newscategory_two   = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_three = News::latest()->whereHas('category')->where('category_id',3)->where('status',1)->take(10)->get();
 
             $newssessionkey = 'news-'.$newssingle->id;
             if(!session()->has($newssessionkey)){
@@ -69,7 +89,12 @@ class FrontController extends Controller
                 session()->put($newssessionkey,1);
             }
 
-            return view('frontend.pages.single',compact('newssingle'));
+            return view('frontend.pages.single',compact(
+                'newssingle', 'newstabspopular', 'newstabsrecent',
+                'newscategory_one',
+                'newscategory_two',
+                'newscategory_three',
+            ));
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
@@ -83,7 +108,17 @@ class FrontController extends Controller
 
             $newssearch = News::with('category')->where('title','like','%'.$search.'%')->whereHas('category')->where('status',1)->get();
 
-            return view('frontend.pages.search',compact('newssearch'));
+            $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_one   = News::latest()->whereHas('category')->where('category_id',6)->where('status',1)->take(9)->get();
+            $newscategory_two   = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
+            $newscategory_three = News::latest()->whereHas('category')->where('category_id',3)->where('status',1)->take(10)->get();
+            return view('frontend.pages.search',compact('newssearch',
+            'newstabspopular', 'newstabsrecent',
+                'newscategory_one',
+                'newscategory_two',
+                'newscategory_three',
+        ));
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
