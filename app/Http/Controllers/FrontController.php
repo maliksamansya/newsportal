@@ -20,7 +20,7 @@ class FrontController extends Controller
             $newstabspopular = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
             $newstabsrecent = News::latest()->whereHas('category')->where('category_id',7)->where('status',1)->take(3)->get();
 
-            return view('frontend.index',compact(
+            return view('version2.frontend.index',compact(
                     'topnewslist',
                     'newscategory_one',
                     'newscategory_two',
