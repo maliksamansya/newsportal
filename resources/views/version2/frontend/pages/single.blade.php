@@ -6,16 +6,21 @@
 
        
     <!-- Preloader Start -->
-    <div id="preloader-active">
+    <?php 
+    /*
+        <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
                 <div class="preloader-img pere-text">
-                    <img src="assets/img/logo/logo.png" alt="">
+                    <img src="{{ asset('version2/assets/img/logo/logo.png') }}" alt="">
                 </div>
             </div>
         </div>
     </div>
+    */
+    ?>
+    
     <!-- Preloader Start -->
 
     <main>
@@ -44,11 +49,18 @@
                             <!-- Trending Tittle -->
                             <div class="about-right mb-90">
                                 <div class="about-img">
-                                    <img src="assets/img/trending/trending_top.jpg" alt="">
+                                    
+                                    <img src="{{ asset('version2/assets/img/trending/'.$newssingle->image) }}" alt="">
                                 </div>
                                 <div class="section-tittle mb-30 pt-30">
-                                    <h3>Here come the moms in space</h3>
+                                    <h3>{{$newssingle->title}}</h3>
                                 </div>
+                                <div class="about-prea">                                 
+                                    <p class="about-pera1 mb-25">
+                                        {{$newssingle->details}}</p>
+                                </div> 
+                                <?php 
+                                /*
                                 <div class="about-prea">
                                     <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
                                     <p class="about-pera1 mb-25">Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
@@ -82,14 +94,16 @@
                                         Mount and Wedge. Both of these terms refer to the tripod your telescope sits on. The mount is the actual tripod and the wedge is the device that lets you attach the telescope to the mount.
                                         Moms are like…buttons? Moms are like glue. Moms are like pizza crusts. Moms are the ones who make sure things happen—from birth to school lunch.</p>
                                 </div>
+                                */
+                                ?>
                                 <div class="social-share pt-30">
                                     <div class="section-tittle">
                                         <h3 class="mr-20">Share:</h3>
                                         <ul>
-                                            <li><a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a></li>
-                                            <li><a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a></li>
-                                            <li><a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a></li>
-                                            <li><a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a></li>
+                                            <li><a href="#"><img src="{{ asset('version2/assets/img/news/icon-ins.png') }}" alt=""></a></li>
+                                            <li><a href="#"><img src="{{ asset('version2/assets/img/news/icon-fb.png') }}" alt=""></a></li>
+                                            <li><a href="#"><img src="{{ asset('version2/assets/img/news/icon-tw.png') }}" alt=""></a></li>
+                                            <li><a href="#"><img src="{{ asset('version2/assets/img/news/icon-yo.png') }}" alt=""></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -137,7 +151,7 @@
                                 <div class="single-box">
                                     <div class="follow-us d-flex align-items-center">
                                         <div class="follow-social">
-                                            <a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a>
+                                            <a href="#"><img src="{{ asset('version2/assets/img/news/icon-fb.png') }}" alt=""></a>
                                         </div>
                                         <div class="follow-count">  
                                             <span>8,045</span>
@@ -146,7 +160,7 @@
                                     </div> 
                                     <div class="follow-us d-flex align-items-center">
                                         <div class="follow-social">
-                                            <a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a>
+                                            <a href="#"><img src="{{ asset('version2/assets/img/news/icon-tw.png') }}" alt=""></a>
                                         </div>
                                         <div class="follow-count">
                                             <span>8,045</span>
@@ -155,7 +169,7 @@
                                     </div>
                                         <div class="follow-us d-flex align-items-center">
                                         <div class="follow-social">
-                                            <a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a>
+                                            <a href="#"><img src="{{ asset('version2/assets/img/news/icon-ins.png') }}" alt=""></a>
                                         </div>
                                         <div class="follow-count">
                                             <span>8,045</span>
@@ -164,7 +178,7 @@
                                     </div>
                                     <div class="follow-us d-flex align-items-center">
                                         <div class="follow-social">
-                                            <a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a>
+                                            <a href="#"><img src="{{ asset('version2/assets/img/news/icon-yo.png') }}" alt=""></a>
                                         </div>
                                         <div class="follow-count">
                                             <span>8,045</span>
@@ -175,7 +189,7 @@
                             </div>
                             <!-- New Poster -->
                             <div class="news-poster d-none d-lg-block">
-                                <img src="assets/img/news/news_card.jpg" alt="">
+                                <img src="{{ asset('version2/assets/img/news/news_card.jpg') }}" alt="">
                             </div>
                         </div>
                    </div>

@@ -30,10 +30,16 @@ use Illuminate\Support\Facades\Route;
 // });
 // Route::get('/', 'FrontController@index')->name('home');
 Route::get('/', [FrontController::class, 'index'])->name('home'); // udah
-Route::get('/page/category/{slug}', [FrontController::class, 'pageCategory'])->name('page.category'); 
+Route::get('/page/category/{slug}', [FrontController::class, 'pageCategory'])->name('page.category');
+Route::get('/partial/category/{slug}', [FrontController::class, 'showCategoryPartial'])->name('partial.category'); 
 Route::get('/page/news/{slug}', [FrontController::class, 'pageNews'])->name('page.news'); // udah
 Route::get('/page', [FrontController::class, 'pageArchive'])->name('page');
 Route::get('/page/search', [FrontController::class, 'pageSearch'])->name('page.search');
+Route::get('/about', [FrontController::class, 'about'])->name('page.about');
+Route::get('/contact', [FrontController::class, 'contact'])->name('page.contact');
+Route::get('/category', [FrontController::class, 'category'])->name('page.category');
+
+
 
 // AUTHENTICATION 
 Route::get('/login',[LoginController::class, 'login'])->name('login');
