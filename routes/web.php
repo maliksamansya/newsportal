@@ -90,13 +90,3 @@ Route::group(['middleware'=>['auth','roles'],'roles'=>['user','editor','admin']]
     Route::post('changepassword',[ProfileController::class, 'changePassword'])->name('profile.changepassword');
 });
 
-
-
-// Route::middleware(['auth'])->group(function () {
-//     // Route yang hanya dapat diakses setelah user login
-//     Route::get('/dashboard', function(){ return view('backend.dashboard'); })->name('dashboard');
-
-//     // Contoh route lain yang memerlukan login
-//     Route::get('/profile', 'ProfileController@index')->name('profile');
-//     Route::post('/profile/update', 'ProfileController@update')->name('profile.update');
-// });

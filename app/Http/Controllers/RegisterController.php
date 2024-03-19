@@ -24,7 +24,7 @@ class RegisterController extends Controller
         try {
             $setting = Setting::first();
 
-            return view('authentication.register',compact('setting'));
+            return view('version2.authentication.register',compact('setting'));
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);

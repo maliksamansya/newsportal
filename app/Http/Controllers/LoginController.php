@@ -24,7 +24,7 @@ class LoginController extends Controller
         try {
             $setting = Setting::first();
 
-            return view('authentication.login',compact('setting'));
+            return view('version2.authentication.login',compact('setting'));
         } catch (\Exception $error) {
             echo $error;
             // return response()->json(['error' => $error->getMessage()], 500);
