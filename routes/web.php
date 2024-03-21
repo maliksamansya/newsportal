@@ -32,6 +32,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class, 'index'])->name('home'); // udah
 Route::get('/page/category/{slug}', [FrontController::class, 'pageCategory'])->name('page.category');
 Route::get('/partial/category/{slug}', [FrontController::class, 'showCategoryPartial'])->name('partial.category'); 
+Route::get('/partial/category/pagination/{slug}', [FrontController::class, 'showCategoryPagination'])->name('pagination.category'); 
 Route::get('/page/news/{slug}', [FrontController::class, 'pageNews'])->name('page.news'); // udah
 Route::get('/page', [FrontController::class, 'pageArchive'])->name('page');
 Route::get('/page/search', [FrontController::class, 'pageSearch'])->name('page.search');

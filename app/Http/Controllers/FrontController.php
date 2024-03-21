@@ -127,6 +127,23 @@ class FrontController extends Controller
         }
     }
 
+    public function showCategoryPagination($slug){
+        try {
+            // var_dump($slug);
+            // Ambil ID kategori berdasarkan nama kategori
+            $categoryId = Category::where('slug', $slug)->value('id');
+            // Ambil 4 berita terbaru dari kategori yang dipilih
+            // $news = News::where('category_id', $categoryId)->orderBy('created_at', 'desc')->take(4)->get();
+            $news = News::with('category')->where('category_id', $categoryId)->orderBy('created_at', 'desc')->paginate(4);
+            // News::with('category')->whereHas('category')->orderBy('view_count', 'desc')->skip(4)->take(5)->get();
+            return view('version2.frontend.layout.partials.category-pagination', compact('news'));
+
+        } catch (\Exception $error) {
+            echo $error;
+            // return response()->json(['error' => $error->getMessage()], 500);
+        }
+    }
+
     public function showLatestNews(){
 
         $latestNews = News::select('news.title', 'news.slug', 'categories.name as category_name')
