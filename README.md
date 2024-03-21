@@ -22,3 +22,19 @@
 ### Home
 
 <img width="1050" alt="Screenshot 2023-08-31 at 10 34 39 PM" src="public/images/home.png">
+
+### Detail
+
+<img width="1050" alt="Screenshot 2023-08-31 at 10 34 39 PM" src="public/images/detail.png">
+
+### Category
+
+<img width="1050" alt="Screenshot 2023-08-31 at 10 34 39 PM" src="public/images/category.png">
+
+### Login/Register
+
+<img width="1050" alt="Screenshot 2023-08-31 at 10 34 39 PM" src="public/images/login.png">
+
+### Admin
+
+<img width="1050" alt="Screenshot 2023-08-31 at 10 34 39 PM" src="public/images/Admin.png">
