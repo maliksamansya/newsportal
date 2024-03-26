@@ -21,7 +21,7 @@
                     @forelse($newssearch as $news)
                         <div class="trand-right-single d-flex">
                             <div class="trand-right-img">
-                                <img src="{{ asset('images/'.$news->image) }}" alt="" style="border-radius: 6px;">
+                                <img src="{{ $news->image }}" alt="" style="border-radius: 6px; width:120px; height:100px;">
                             </div>
                             <div class="trand-right-cap" style="padding-left: 18px;">
                                 <span class="color1">{{ $news->category->name }}</span>
@@ -31,40 +31,12 @@
                                     <li><i class="far fa-clock"></i> {{ $news->created_at->diffForHumans() }}</li>
                                 </ul>
                             </div>
-                        </div>
-                        <?php 
-                            /*
-                            <div class="section-item">
-
-                                <a href="{{ route('page.news',$news->slug) }}" class="bg-image" style="background-image:url({{ asset('images/'.$news->image) }}); display: block;"></a>
-                                
-                                <div>
-                                    <h3><a href="{{ route('page.news',$news->slug) }}">{{ $news->title }}</a></h3>
-
-                                    <p>{{ $news->details }}</p>
-
-                                    <ul>
-                                        <li><i class="far fa-folder"></i> <a href="{{ route('page.category',$news->category->slug) }}">{{ $news->category->name }}</a></li>
-                                        <li><i class="far fa-clock"></i> {{ $news->created_at->diffForHumans() }}</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            */
-                        ?>
-                        
+                        </div>                        
                     @empty 
                         <h2>No result found!</h2>
                     @endforelse
                 </div>
             </div>
-            <?php
-                /*
-                 <aside class="sidebar">
-                    @include('frontend.pages.sidebar')
-                </aside>
-                */
-            ?>
              <!-- New Poster -->
              <div class="news-poster d-none d-lg-block">
                 <img src="{{ asset('version2/assets/img/news/'.$advNews->sidebar_two) }}" alt="{{ $advNews->slug }}">

@@ -25,7 +25,7 @@ class FrontController extends Controller
             $weeklyNews = News::where('created_at', '>=', $weekAgo)->orderBy('created_at', 'desc')->take(4)->get();
             $advNews = Advertisement::latest()->first();
 
-            $weeklyPopularNews =  News::select('news.title', 'news.slug', 'news.created_at', 'categories.name as category_name')
+            $weeklyPopularNews =  News::select('news.title','news.image', 'news.slug', 'news.created_at', 'categories.name as category_name')
                                 ->join('categories', 'news.category_id', '=', 'categories.id')
                                 ->where('news.created_at', '>=', $weekAgo)
                                 ->orderBy('news.view_count', 'desc')
@@ -33,7 +33,7 @@ class FrontController extends Controller
                                 ->get();
 
            
-            $latestNews = News::select('news.title', 'news.slug', 'categories.name as category_name')
+            $latestNews = News::select('news.title','news.image', 'news.slug', 'categories.name as category_name')
                                 ->join('categories', 'news.category_id', '=', 'categories.id')
                                 ->orderBy('news.created_at', 'desc')
                                 ->paginate(4);                    

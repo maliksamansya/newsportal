@@ -17,9 +17,13 @@
                        <div class="col-xl-12">
                             <div class="row d-flex justify-content-between align-items-center">
                                 <div class="header-info-left">
-                                    <ul>     
-                                        <li><img src="{{ asset('version2/assets/img/icon/header_icon1.png') }}" alt="">34ºc, Sunny </li>
-                                        <li><img src="{{ asset('version2/assets/img/icon/header_icon1.png') }}" alt="">Tuesday, 18th June, 2019</li>
+                                    <ul>
+                                        @php 
+                                            $timezone = 'Asia/Dhaka';
+                                            date_default_timezone_set($timezone);
+                                        @endphp
+                                        {{--<li><img src="{{ asset('version2/assets/img/icon/header_icon1.png') }}" alt="">34ºc, Sunny </li> --}}
+                                        <li><img src="{{ asset('version2/assets/img/icon/header_icon1.png') }}" alt="">{{ date('h:i A') }} - {{ date('d M Y') }}</li>
                                     </ul>
                                 </div>
                                 <div class="header-info-right">
@@ -66,6 +70,7 @@
                                             <li><a href="{{ route('page.category') }}">Category</a></li>
                                             <li><a href="{{ route('page.about') }}">About</a></li>
                                             <li><a href="{{ route('page.contact') }}">Contact</a></li>
+                                            <li><a href="{{ route('login') }}">Login</a></li>
                                             <?php
                                             /* 
                                             <li><a href="#">Pages</a>
